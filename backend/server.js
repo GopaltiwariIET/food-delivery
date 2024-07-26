@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import foodRouter from "./routes/foodRoute.js";
 import { connectDB } from "./db.js";
+import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
@@ -16,7 +16,19 @@ app.use(express.json());
 app.use(cors());
 
 // db connection
-connectDB();
+connectDB()
+  .then(() => {
+    console.log("Database Connected");
+
+    // start server
+    app.listen(port, () => {
+      console.log(`Server started on port ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Database Connection Error:", error);
+    process.exit(1);
+  });
 
 // api endpoints
 app.use("/api/food", foodRouter);
@@ -27,9 +39,4 @@ app.use("/api/order", orderRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working");
-});
-
-// start server
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
 });
