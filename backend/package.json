@@ -2,13 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "start": "node api/index.js"
   },
-  "author": "",
+  "author": "gopal tiwari",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
