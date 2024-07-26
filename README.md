@@ -1,6 +1,6 @@
 # FOOD DELIVERY
 
-## use npm install iin every folder
+## use npm install in every folder
 
 ## start the backend
 
