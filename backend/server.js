@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import foodRouter from "./routes/foodRoute.js";
-import { connectDB } from "./config.js";
+import { connectDB } from "./db.js";
 import userRouter from "./routes/userRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
