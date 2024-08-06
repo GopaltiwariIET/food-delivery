@@ -1,6 +1,6 @@
+import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
-import { connectDB } from "../db.js";
 import foodRouter from "../routes/foodRoute.js";
 import userRouter from "../routes/userRoute.js";
 import cartRouter from "../routes/cartRoute.js";
@@ -9,14 +9,14 @@ import "dotenv/config";
 
 // app config
 const app = express();
-const port = process.env.PORT || 4000;
-
 // middleware
 app.use(express.json());
 app.use(cors());
 
-// db connection
-connectDB();
+await mongoose.connect(process.env.MONGO_DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // api endpoints
 app.use("/api/food", foodRouter);
@@ -28,8 +28,5 @@ app.use("/api/order", orderRouter);
 app.get("/", (req, res) => {
   res.send("API Working");
 });
-app.get("/favicon.ico", (req, res) => res.status(200));
 
-// start server
-app.listen(port, () => console.log(`Server ready on port ${port}.`));
 export default app;
