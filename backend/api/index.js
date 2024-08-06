@@ -11,7 +11,7 @@ import "dotenv/config";
 const app = express();
 // middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 await mongoose.connect(process.env.MONGO_DB, {
   useNewUrlParser: true,
@@ -19,11 +19,11 @@ await mongoose.connect(process.env.MONGO_DB, {
 });
 
 // api endpoints
-app.use("/api/food", foodRouter);
-app.use("/images", express.static("uploads"));
-app.use("/api/user", userRouter);
-app.use("/api/cart", cartRouter);
-app.use("/api/order", orderRouter);
+app.use("api/food", foodRouter);
+app.use("images", express.static("uploads"));
+app.use("api/user", userRouter);
+app.use("api/cart", cartRouter);
+app.use("api/order", orderRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working");
