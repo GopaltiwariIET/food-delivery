@@ -9,13 +9,12 @@
     "backend": "cd .\\backend && vercel dev",
     "admin": "cd .\\admin && npm run dev",
     "client": "cd frontend && npm run dev",
-    "start": "concurrently --names \"SERVER,CLIENT,ADMIN\" -c \"bgBlue.bold,bgMagenta.bold,purple.bold\" \"npm run backend\" \"npm run client\" \"npm run admin\""
+    "start": "concurrently --names \"SERVER,CLIENT,ADMIN\" -c \"bgBlue.bold,bgMagenta.bold,purple.bold\" \"npm run server\" \"npm run client\" \"npm run admin\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.2.2",
-    "gridfs-stream": "^1.1.1"
+    "concurrently": "^8.2.2"
   }
 }
