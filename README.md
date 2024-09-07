@@ -27,4 +27,4 @@ The Food Delivery App is a web-based platform that allows users to order food fr
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/food-delivery-app.git
+   git clone https://github.com/gopaltiwariIET/food-delivery-app.git
